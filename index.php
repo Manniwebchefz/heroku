@@ -1,5 +1,5 @@
 <?php
-$curl = curl_init();
+/* $curl = curl_init();
 curl_setopt_array($curl, array(
   CURLOPT_URL => 'https://web-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?convert=BRL&limit=5000&start=1',
   CURLOPT_RETURNTRANSFER => true,
@@ -15,6 +15,21 @@ $response = curl_exec($curl);
 curl_close($curl);
 echo '<pre>';
 print_r($response);
-echo '</pre>';
+echo '</pre>';*/
+
+
 
 ?>
+<div class="file_ready"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+
+ $(document).ready(function(){
+ $.get('https://web-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?convert=BRL&limit=5000&start=1',function(response){
+  $('.file_ready').html(response);
+ })
+   
+ });
+</script>
