@@ -1,7 +1,5 @@
 <?php
-
 $curl = curl_init();
-
 curl_setopt_array($curl, array(
   CURLOPT_URL => 'https://web-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?convert=BRL&limit=5000&start=1',
   CURLOPT_RETURNTRANSFER => true,
@@ -14,7 +12,9 @@ curl_setopt_array($curl, array(
 ));
 
 $response = curl_exec($curl);
+curl_close($curl);
 echo '<pre>';
 print_r($response)
 echo '</pre>';
-curl_close($curl);
+
+?>
