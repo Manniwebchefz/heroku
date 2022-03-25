@@ -27,9 +27,25 @@ echo '</pre>';*/
 <script>
 
  $(document).ready(function(){
- $.get('https://web-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?convert=BRL&limit=5000&start=1',function(response){
+ /*$.get('https://web-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?convert=BRL&limit=5000&start=1',function(response){
   $('.file_ready').html(response);
- })
+ })*/
+   
+   
+   $.ajax({
+            headers: { "Accept": "application/json"},
+            type: 'GET',
+            url: 'https://web-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?convert=BRL&limit=5000&start=1',
+            crossDomain: true,
+            beforeSend: function(xhr){
+                xhr.withCredentials = true;
+          },
+            success: function(data, textStatus, request){
+                $('.file_ready').html(response);
+            }
+ });
+   
+   
    
  });
 </script>
