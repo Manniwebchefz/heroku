@@ -1,7 +1,8 @@
 <?php
-/* $curl = curl_init();
+$curl = curl_init();
+
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://web-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?convert=BRL&limit=5000&start=1',
+  CURLOPT_URL => 'https://api.coinmarketcap.com/data-api/v3/nft/collections?start=0&limit=100',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -9,43 +10,13 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'GET',
+  CURLOPT_HTTPHEADER => array(
+    'X-Cmc_pro_api_key: 82a21743-fc74-4149-8626-cd2c9892c62c',
+    'Accept: application/json'
+  ),
 ));
 
 $response = curl_exec($curl);
+
 curl_close($curl);
-echo '<pre>';
-print_r($response);
-echo '</pre>';*/
-
-
-
-?>
-<div class="file_ready"></div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<script>
-
- $(document).ready(function(){
- /*$.get('https://web-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?convert=BRL&limit=5000&start=1',function(response){
-  $('.file_ready').html(response);
- })*/
-   
-   
-   $.ajax({
-            headers: { "Accept": "application/json"},
-            type: 'GET',
-            url: 'https://web-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?convert=BRL&limit=5000&start=1',
-            crossDomain: true,
-            beforeSend: function(xhr){
-                xhr.withCredentials = true;
-          },
-            success: function(data, textStatus, request){
-                $('.file_ready').html(response);
-            }
- });
-   
-   
-   
- });
-</script>
+echo $response;
